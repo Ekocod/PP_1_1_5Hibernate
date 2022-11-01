@@ -1,8 +1,12 @@
 package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.dao.UserDao;
+//import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.util.Util;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.cfg.Configuration;
 
 import java.sql.SQLException;
 
@@ -11,8 +15,8 @@ public class Main {
         Util.getConnection();
         UserDao userDao = new UserDaoJDBCImpl();
 
+        //Создание таблицы User(ов)
         try {
-            //Создание таблицы User(ов)
             userDao.createUsersTable();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -32,5 +36,8 @@ public class Main {
 
         //Удаление таблицы
         userDao.dropUsersTable();
+
+//        UserDao userDao = new UserDaoHibernateImpl();
+//        userDao.saveUser("Eko", "Slambek", (byte) 22);
     }
 }
