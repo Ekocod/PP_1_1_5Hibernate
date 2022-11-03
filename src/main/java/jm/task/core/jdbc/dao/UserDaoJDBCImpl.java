@@ -19,7 +19,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
         try (Statement statement = Util.getConnection().createStatement()) {
             statement.execute("""
-                    CREATE TABLE `jdbc_db`.`users` (
+                    CREATE TABLE IF NOT EXISTS `jdbc_db`.`users` (
                       `id` INT NOT NULL AUTO_INCREMENT,
                       `name` VARCHAR(45) NOT NULL,
                       `lastName` VARCHAR(45) NULL,
