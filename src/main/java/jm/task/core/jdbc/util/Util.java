@@ -18,7 +18,7 @@ public class Util {
     private static SessionFactory sessionFactory;
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_JDBC = "jdbc:mysql://localhost:3306/jdbc_db?useSSL=false";
-    private static final String DB_HIBERNATE = "jdbc:mysql://localhost:3306/hibernate_db?useSSL=false";
+    private static final String DB_HIBERNATE = "jdbc:mysql://localhost:3306/hibernate_db?useSSL=false&allowPublicKeyRetrieval=true";
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "root";
 
@@ -47,7 +47,7 @@ public class Util {
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-                settings.put(Environment.HBM2DDL_AUTO, "");
+                settings.put(Environment.HBM2DDL_AUTO, "update");
 
                 configuration.setProperties(settings);
 

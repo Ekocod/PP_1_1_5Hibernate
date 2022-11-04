@@ -2,11 +2,11 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+//import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.util.Util;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.cfg.Configuration;
 
 import java.sql.SQLException;
 
@@ -50,7 +50,7 @@ public class Main {
         userDao.saveUser("Name3", "LastName3", (byte) 31);
         userDao.saveUser("Name4", "LastName4", (byte) 38);
 
-        //Удаление User из таблицы ( по id )
+        //Удаление User из таблицы (по id)
 //        userDao.removeUserById(1);
 
         //Получение всех User из базы и вывод в консоль
@@ -61,5 +61,8 @@ public class Main {
 
         //Удаление таблицы
         userDao.dropUsersTable();
+
+        //Закрываем ресурс
+        Util.getSessionFactory().close();
     }
 }
