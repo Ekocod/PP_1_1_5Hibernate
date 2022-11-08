@@ -12,8 +12,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-//Я уже приступил к решению задачи с Hibernate, надеюсь ничего страшного :)
 public class Util {
+    private static Util instance = null;
+
+    private Util() {
+
+    }
+    public static Util getInstance() {
+        if (instance == null) {
+            instance = new Util();
+        }
+        return instance;
+    }
 
     private static SessionFactory sessionFactory;
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
