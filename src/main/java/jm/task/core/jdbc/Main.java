@@ -2,9 +2,11 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +27,12 @@ public class Main {
         userDao.removeUserById(1);
 
         //Получение всех User из базы и вывод в консоль
-        System.out.println(userDao.getAllUsers());
+        List<User> allUsers = userDao.getAllUsers();
+        int i = 0;
+        while (i < allUsers.size()) {
+            System.out.println(allUsers.get(i));
+            i++;
+        }
 
         //Очистка таблицы User(ов)
         userDao.cleanUsersTable();
